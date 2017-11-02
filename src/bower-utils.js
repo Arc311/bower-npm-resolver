@@ -91,6 +91,11 @@ module.exports = {
               newConfig.name = newConfig.name.substr(1).replace(/\//g, '-');
             }
 
+            // add css to main if exist
+            if (config.style) {
+              newConfig.main = [newConfig.main, config.style];
+            }
+
             // Do not try to translate dependencies.
             // Maybe be can try to deduce the dependencies ?
             newConfig.dependencies = {};
